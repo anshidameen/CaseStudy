@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MockServiceService } from 'src/app/core/services/mock-service.service';
 
 @Component({
   selector: 'app-list-item',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListItemComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private mock:MockServiceService) { }
+  items:any[] =[];
   ngOnInit(): void {
+    this.getAllList();
   }
 
+  getAllList(){
+    this.mock.getList().subscribe((res)=>{
+      this.items=res
+    },
+    (error)=>{
+      console.error('Error fetching items', error);
+    })
+  }
 }
