@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-edit-item',
   templateUrl: './edit-item.component.html',
@@ -8,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class EditItemComponent implements OnInit {
 
   constructor() { }
-
+  formData:any
   ngOnInit(): void {
+   
   }
 
 }
