@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MockServiceService {
 
-  private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+  private apiUrl = 'https://jsonplaceholder.typicode.com/users';
   constructor(private http:HttpClient) { }
 
   getList():Observable<any[]>{

@@ -10,6 +10,7 @@ export class ListItemComponent implements OnInit {
 
   constructor(private mock:MockServiceService) { }
   items:any[] =[];
+  isFormVisible: boolean = false;
   ngOnInit(): void {
     this.getAllList();
   }
@@ -21,5 +22,8 @@ export class ListItemComponent implements OnInit {
     (error)=>{
       console.error('Error fetching items', error);
     })
+  }
+  toggleForm() {
+    this.isFormVisible = !this.isFormVisible; // Toggle the form visibility
   }
 }
