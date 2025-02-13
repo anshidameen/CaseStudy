@@ -1,23 +1,21 @@
-/* Ensure that the form stays within bounds of the screen and doesn't overflow */
+
 form {
-    max-width: 500px;  /* Set a max-width for the form */
-  }
+    max-width: 500px; 
+}
   
-  /* Make sure the table and form are side by side on larger screens, and stack on smaller screens */
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
     .flex {
-      flex-direction: column;  /* Stack the items vertically on smaller screens */
+      flex-direction: column; 
     }
-  }
+}
   
-  @media (min-width: 1024px) {
+@media (min-width: 1024px) {
     .flex {
-      flex-direction: row;  /* Align items horizontally on larger screens */
+      flex-direction: row;  
     }
-  }
+}
   
-  /* Optional: Add some margin/padding adjustments to keep the layout clean */
-  .table-container {
+.table-container {
     margin-right: 1rem;
-  }
+}
   
