@@ -9,7 +9,8 @@ import { MockServiceService } from 'src/app/core/services/mock-service.service';
 export class ListItemComponent implements OnInit {
 
   constructor(private mock:MockServiceService) { }
-  items:any[] =[];
+  items: any[] = [];
+  currentItem = {  name: '', email: '', address: { city: '', street: '', zipcode: '' } };
   isFormVisible: boolean = false;
   ngOnInit(): void {
     this.getAllList();
@@ -23,7 +24,19 @@ export class ListItemComponent implements OnInit {
       console.error('Error fetching items', error);
     })
   }
+  onSubmit(){
+    this.mock.addList(this.currentItem).subscribe((data)=>{
+      alert("form sumitted");
+      console.log(this.currentItem);
+      this.items.push(data)
+      this.toggleForm();
+    },
+    (error)=>{
+      console.log("error occured");
+    }
+  )
+  }
   toggleForm() {
-    this.isFormVisible = !this.isFormVisible; // Toggle the form visibility
+    this.isFormVisible = !this.isFormVisible; 
   }
 }
