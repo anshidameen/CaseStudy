@@ -28,7 +28,7 @@ describe('MockServiceService', () => {
       expect(data).toEqual(mockData);
     })
 
-    const req =httpMock.expectOne('https://jsonplaceholder.typicode.com/posts');
+    const req =httpMock.expectOne('https://jsonplaceholder.typicode.com/users');
     expect(req.request.method).toBe('GET');
     req.flush(mockData);
   });

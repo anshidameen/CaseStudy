@@ -27,8 +27,13 @@ describe('ListItemComponent', () => {
     mockService = TestBed.inject(MockServiceService);
     httpMock = TestBed.inject(HttpTestingController);
     fixture.detectChanges();
+    const req = httpMock.expectOne('https://jsonplaceholder.typicode.com/users');
+    req.flush(mockData);
   });
 
+  afterEach(() => {
+    httpMock.verify();
+  });
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -36,7 +41,8 @@ describe('ListItemComponent', () => {
   it('should fetch items from the service and update items list', () => {
 
     component.getAllList();
-    const req = httpMock.expectOne('https://jsonplaceholder.typicode.com/posts');
+    
+    const req = httpMock.expectOne('https://jsonplaceholder.typicode.com/users');
     expect(req.request.method).toBe('GET');
     req.flush(mockData);
     httpMock.verify();
