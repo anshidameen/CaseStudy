@@ -41,5 +41,14 @@ export class ListItemComponent implements OnInit {
     this.isFormVisible = !this.isFormVisible; 
   }
 
+  deleteItems(id:number){
+    this.mock.deleteData(id).subscribe((res)=>{
+      this.items = this.items.filter(item => item.id !== id);
+      console.log('Item deleted successfully');
+    }),
+    (error: any) => {
+      console.error('Error deleting item:', error);
+    }
+  }
 
 }

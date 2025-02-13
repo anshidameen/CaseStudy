@@ -23,7 +23,7 @@
                 <td class="py-2 px-4">
                   <div class="flex gap-2 justify-start">
                     <button class="bg-blue-500 text-white px-4 py-2 rounded" routerLink="/edit">Edit</button>
-                    <button class="bg-red-500 text-white px-4 py-2 rounded">Delete</button>
+                    <button class="bg-red-500 text-white px-4 py-2 rounded" (click)="deleteItems(item.id)" >Delete</button>
                   </div>
                 </td>
               </tr>
