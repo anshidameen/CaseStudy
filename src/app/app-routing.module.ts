@@ -7,7 +7,8 @@ import { EditItemComponent } from './feature/edit-item/edit-item.component';
 const routes: Routes = [
   {path:'',component:ListItemComponent},
   {path:'list',component:ListItemComponent},
-  {path:'edit',component:EditItemComponent}
+  { path: 'edit/:id', component: EditItemComponent }
+
 ];
 
 @NgModule({

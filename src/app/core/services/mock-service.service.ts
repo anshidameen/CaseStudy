@@ -6,6 +6,9 @@ import { Observable, of, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class MockServiceService {
+  updateItem(currentItem: any) {
+    throw new Error('Method not implemented.');
+  }
 
   private apiUrl = 'https://jsonplaceholder.typicode.com/users';
   private storedItemsKey = 'storedItems';
@@ -19,8 +22,8 @@ export class MockServiceService {
     return this.http.post(this.apiUrl,data);
   }
 
-  updateData(id: number, data: any) {
-    return this.http.put(`${this.apiUrl}/${id}`, data);
+  updateData( data: any):Observable<any> {
+    return this.http.put(`${this.apiUrl}/${data.id}`, data);
   }
 
   deleteData(id: number) {
