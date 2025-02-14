@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 import { MockServiceService } from 'src/app/core/services/mock-service.service';
 
 
@@ -9,7 +11,8 @@ import { MockServiceService } from 'src/app/core/services/mock-service.service';
 })
 export class ListItemComponent implements OnInit {
 
-  constructor(private mock:MockServiceService) { }
+
+  constructor(private mock:MockServiceService,private router: Router) { }
   items: any[]=[] ;
   currentItem = {  name: '', email: '', address: { city: '', street: '', zipcode: '' } };
   isFormVisible: boolean = false;
@@ -44,6 +47,7 @@ export class ListItemComponent implements OnInit {
   deleteItems(id:number){
     this.mock.deleteData(id).subscribe((res)=>{
       this.items = this.items.filter(item => item.id !== id);
+      alert("are you sure you want delete this row")
       console.log('Item deleted successfully');
     }),
     (error: any) => {
